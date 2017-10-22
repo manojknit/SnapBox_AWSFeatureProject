@@ -96,7 +96,7 @@ var params = {
   Message: 'CloudJibe portal iniciated filedeletion for file - ' + srcBucket + '/' + srcKey, /* required */
   MessageStructure: 'STRING_VALUE',
   Subject: 'File ('+srcKey+') deleted in S3 from CloudJibe portal',
-  TopicArn: 'arn:aws:sns:us-west-1:494875521123:manojalb_health'
+  TopicArn: 'arn:aws:sns:us-west-1:476342674:manojalb_health'
 };
 sns.publish(params, function(error, data) {
   if (error) console.log(error, err.stack); // an error occurred
