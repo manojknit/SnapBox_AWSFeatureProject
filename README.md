@@ -5,17 +5,17 @@ Basically It demonstrates Azure Active Directory Single Sign On Authentication, 
 ### Main List Page
  
 ## Installation
----
 * Visual Studio 2017
 * Clone project and open in Visual studio 2017
 * Enter your RDS MySQL database connection string in Startup.cs file line # 29.
 * Place IAM.json file in toot folder where Startup.cs is there. This file will have you AWS profile information. Sample is as follows.
-’’’
+
+‘‘‘
 [local-test-profile]
 aws_access_key_id=XXXXXXXXXXXXXZX
 aws_secret_access_key=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 region=us-west-1
-’’’
+‘‘‘   
 * Now run your application
 
 
