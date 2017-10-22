@@ -49,8 +49,10 @@ Basically this application demonstrates Azure Active Directory Single Sign-On Au
 <img src="images/detail_image.PNG">
 
 #### Edit Page: In this page user can update metadat of image and can also replace it. Validation is inplace to keep file name same to replace.
-<img src="images/rename_image.PNG">
 <img src="images/replace_image.PNG">
+
+#### Delete Page:
+<img src="images/rename_image.PNG">
 
 #### Validations: System has file type and file size validation
 <img src="images/validationfilesize.PNG">
