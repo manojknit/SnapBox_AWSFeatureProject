@@ -3,7 +3,7 @@
 Personal picture repository in cloud. This application provides secure, highly available and scalable storage for you snaps.
 Basically It demonstrates Azure Active Directory Single Sign On Authentication, CRUD operations with AWS RDS MySQL, File storage with AWS S3, File download from AWS CloudFront with AWS SDK for .NET with .NET Core, ASP.NET Core MVC, JQuery, Bootstrap, Pomelo.EntityFrameworkCore.MySql.
 ### Main List Page
- 
+<img src="images/image_list.PNG">
 ## Installation
 * Visual Studio 2017
 * Clone project and open in Visual studio 2017
