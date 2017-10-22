@@ -22,6 +22,6 @@ region=us-west-1
 ## License
 The SnapBox – By CloudJibe is licensed under the terms of the GPL Open Source license and is available for free.
 ## Refrence
-
+Manoj Kumar
 
 
