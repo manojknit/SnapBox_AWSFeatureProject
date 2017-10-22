@@ -8,6 +8,7 @@ Personal picture repository in cloud. This application provides secure, highly a
 * Agenda
 * Screenshots
 * Installation
+* AWS Infrastructure 
 * Architecture diagrams
 * Licence
 * Refrence
@@ -74,7 +75,11 @@ aws_access_key_id=XXXXXXXXXXXXXZX
 aws_secret_access_key=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 region=us-west-1
 ```   
-* Setup AWS infrastructure 
+
+* Now run your application
+* This project is deployed on AWS Elastic Beanstalk on Multi AZ servers with load balancer and autoscaling.
+
+## AWS infrastructure 
  1. Create S3 bucket with name as “homework2-manoj”. Enable versioning and transfer acceleration. Lifecycle can be set as architecture diagram to save cost. I also set permissions, user and group in IAM. 
 <img src="images/ S3-lifecycle.PNG"/>
  2. Setup AWS Lambda to send delete image notifications using AWS Simple Notification Service Topic. 
@@ -110,7 +115,9 @@ sns.publish(params, function(error, data) {
 };
 ```
 
-* Now run your application
+
+
+##Architecture diagrams
 
 
 ## License
