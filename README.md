@@ -1,5 +1,5 @@
 
-# SanapBox - AWSFeatureProject
+# SnapBox - AWSFeatureProject
 ####                                                                                                     By CloudJibe
 ## Introduction 
 Personal picture repository in cloud. This application provides secure, highly available and scalable storage for you snaps.   
