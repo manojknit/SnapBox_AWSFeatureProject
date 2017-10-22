@@ -1,0 +1,89 @@
+﻿@model AWSFeatureProject.Models.FileUpdate
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    span {
+        font-style: italic;
+    }
+</style>
+<h2>Update/Add File Info.</h2>
+
+<h4>File Update Info.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="firstName" class="control-label"></label>
+                <input asp-for="firstName" class="form-control" />
+                <span asp-validation-for="firstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastname" class="control-label"></label>
+                <input asp-for="lastname" class="form-control" />
+                <span asp-validation-for="lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="upload_date" class="control-label"></label>
+                <input asp-for="upload_date" class="form-control" />
+                <span asp-validation-for="upload_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="updated_date" class="control-label"></label>
+                <input asp-for="updated_date" class="form-control" />
+                <span asp-validation-for="updated_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="file_name" class="control-label"></label>
+                <input asp-for="file_name" class="form-control" readonly="readonly" />
+                <span >*Not happy with this file. Please click link at bottom of the page to replace.</span>
+                <span asp-validation-for="file_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="file_desc" class="control-label"></label>
+                <input asp-for="file_desc" class="form-control" />
+                <span asp-validation-for="file_desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
+                @*@Html.ActionLink(
+    "Replace File",                                   // linkText
+    "ReplaceFile",                                    // actionName
+    "FileUpdates",                                    // controllerName
+    new
+    {
+        fileName = Model.file_name
+    },
+    new { @class = "btn btn-primary" })*@
+                <a href="@Url.Action("ReplaceFile", "FileUpdates", new { fileName = Model.file_name})" class = "btn btn-primary">
+                    <span class="glyphicon glyphicon-transfer" style="color:white; margin-right:5px;" aria-hidden="true"></span>Replace File
+                </a>
+                <button type="submit" class="btn btn-success" ><span class="glyphicon glyphicon-saved" style="color:white; margin-right:5px;" aria-hidden="true"></span>Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @*<form asp-action="ReplaceFile">
+        <input type="hidden" asp-for="file_name" />
+        <input type="submit" value="Replace File" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>*@
+                   
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

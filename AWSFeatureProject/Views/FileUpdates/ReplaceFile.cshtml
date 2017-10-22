@@ -1,0 +1,66 @@
+﻿@model AWSFeatureProject.Models.FileUpdate
+
+@{
+    ViewData["Title"] = "ReplaceFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    function validatefile() {
+        var filePath = $("[name='file']").val();
+        var text = $("#file_name").val();
+        var filename = filePath.replace(/^.*[\\\/]/, '');
+        if (filename == '') {
+            alert("Please select file.");
+        }
+        else if (filename == text) {
+            //Match
+            return true;
+        }
+        else {
+            alert("Replaced file should have same name.");
+        }
+        return false;//false will not submit
+    }
+</script>
+
+<h2>Create</h2>
+
+<h4>FileUpdate</h4>
+<hr />
+<div class="row">
+    @*<div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="file_name" class="control-label"></label>
+            <input asp-for="file_name" class="form-control" disabled="disabled" />
+        </div>
+    </div>*@
+    <div class="col-md-4">
+
+        @using (Html.BeginForm("ReplaceFile", "FileUpdates", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+            <div class="form-group">
+                <label asp-for="file_name" class="control-label"></label>
+                <input asp-for="file_name" class="form-control" readonly="readonly" />
+            </div>
+            
+                <div class="form-group">
+                    <label for="file">Please Upload File to Proceed:</label>
+                    <input name="file" type="file" />
+                    <input type="submit" id="Save" value="Upload Image" class="btn btn-success btn-sm" onclick="return validatefile();"/>
+                    <br><br>
+                    @ViewBag.Message
+                </div>
+        }
+    </div>
+
+
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

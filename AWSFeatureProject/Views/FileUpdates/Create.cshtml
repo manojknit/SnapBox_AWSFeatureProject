@@ -1,0 +1,124 @@
+﻿@model AWSFeatureProject.Models.FileUpdate
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function validatefile() {
+        var filePath = $("[name='file']").val();
+  
+        var filename = filePath.replace(/^.*[\\\/]/, '');
+        var fileext = filename.split('.').pop();
+        if (filename == '') {
+            alert("Please select file first.");
+        }
+        else if (fileext == 'jpg' || fileext == 'png' || fileext == 'JPG' || fileext == 'PNG') {
+            //Match
+            return true;
+        }
+        else {
+            alert("Only jpg or png image files are allowed.");
+        }
+        return false;//false will not submit
+    }
+</script>
+<h2>Create</h2>
+
+<h4>FileUpdate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            @using (Html.BeginForm("UploadSingle", "FileUpdates", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <label for="file">Please Upload File to Proceed:</label>
+                <input name="file" type="file" />
+                <input type="submit" class="btn btn-success btn-sm" value="Upload Image"  onclick="return validatefile();" />
+                <br><br>
+            }
+            <div id="diverror">@TempData["ErrorMessage"]</div>
+            @*<div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>*@
+            
+        </div>
+    </div>
+    <div class="col-md-4">
+        @*<form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="file_name" class="control-label"></label>
+                            <input asp-for="file_name" class="form-control" disabled="disabled"/>
+                            <span asp-validation-for="file_name" class="text-danger"></span>
+                        </div>
+                            <div class="form-group">
+                                <label asp-for="firstName" class="control-label"></label>
+                                <input asp-for="firstName" class="form-control" />
+                                <span asp-validation-for="firstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="lastname" class="control-label"></label>
+                                <input asp-for="lastname" class="form-control" />
+                                <span asp-validation-for="lastname" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="email" class="control-label"></label>
+                                <input asp-for="email" class="form-control" />
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="upload_date" class="control-label"></label>
+                                <input asp-for="upload_date" class="form-control" />
+                                <span asp-validation-for="upload_date" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="updated_date" class="control-label"></label>
+                                <input asp-for="updated_date" class="form-control" />
+                                <span asp-validation-for="updated_date" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label asp-for="file_desc" class="control-label"></label>
+                                <input asp-for="file_desc" class="form-control" />
+                                <span asp-validation-for="file_desc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+            </form>*@
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
+</div>
+
+<script>
+    $(function () {
+        console.log("ready!");
+        alert("load");
+    });
+    document.onload = function (e) {
+        alert();
+        var elem = $("#diverror");
+        if (elem.innerHTML.length > 1) {
+            elem.addClass("alert alert-danger");
+        }
+
+    }
+
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $(document).ready(function () {
+            var elem = $("#diverror");
+            if (elem.innerHTML.length > 1) {
+                elem.addClass("alert alert-danger");
+                //elem.removeClass("alert-info alert-success alert-warning alert-danger").addClass("alert-danger").html(msg).fadeIn('slow').delay(5000).fadeOut('slow');
+            }
+
+        });
+</script>
+}

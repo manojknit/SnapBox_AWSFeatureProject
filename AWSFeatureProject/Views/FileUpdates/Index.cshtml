@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AWSFeatureProject.Models.FileUpdate>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>SnapBox!</h2>
+<p>
+
+</p>
+<table class="table">
+    <thead>
+        <tr><td colspan="8" style="text-align:right;"><a asp-action="Create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a></td></tr>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.firstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.upload_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.updated_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.file_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.file_desc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.lastname)
+                </td>
+                <td style="width:20%">
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.upload_date)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.updated_date)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.file_name)*@
+                    <a target="_blank" href='@string.Concat("http://d3jipjupqa8jtl.cloudfront.net/"+item.file_name)'>@item.file_name</a>
+                </td>
+                <td style="width:20%">
+                    @Html.DisplayFor(modelItem => item.file_desc)
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" style="color:white; margin-right:5px;" aria-hidden="true"></span>Edit</a> </td><td><span style="margin-right:5px;"></span></td>
+                            <td><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><span class="glyphicon glyphicon-th-list" style="color:white; margin-right:5px;" aria-hidden="true"></span>Details</a> </td><td><span style="margin-right:5px;"></span></td>
+                            <td><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><span class="glyphicon glyphicon-remove" style="color:white; margin-right:5px;" aria-hidden="true"></span>Delete</a> </td><td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+</div>
