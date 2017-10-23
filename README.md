@@ -9,7 +9,7 @@ A personal picture repository in cloud. This application provides secure, highly
 * Features
 * Technologies Used
 * Application Screenshots
-* Installation
+* How to Run
 * Architecture diagrams
 * AWS Infrastructure Detail
 * Licence
@@ -95,7 +95,7 @@ Basically this application demonstrates Azure Active Directory Single Sign-On Au
 <img src="images/signin.PNG">
 <img src="images/signout.PNG">
 
-## Installation
+## How to Run
 * Visual Studio 2017
 * Clone project and open in Visual studio 2017
 * Enter your RDS MySQL database connection string in Startup.cs file line # 29.
