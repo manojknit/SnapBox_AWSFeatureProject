@@ -100,6 +100,8 @@ Basically this application demonstrates Azure Active Directory Single Sign-On Au
 * Clone project and open in Visual studio 2017
 * Enter your RDS MySQL database connection string in Startup.cs file line # 29.
 * Place IAM.json file in root folder where Startup.cs is there. This file will have you AWS profile information. Sample is as follows.
+* Set up AWS infrastructure
+* Setup Azure AD (Will cover in another article for How to)
 
 ```
 [local-test-profile]
@@ -119,6 +121,7 @@ region=us-west-1
 <img src="images/AWS_ASPNetCoreebHostingArchitecture.PNG">
 
 ## AWS infrastructure 
+In AWS following 3 are the main technologies which are required to run App. However I used more to make secure, highly available, reliable and scalable application.
  1. Create S3 bucket with name as “homework2-manoj”. Enable versioning and transfer acceleration. Lifecycle can be set as architecture diagram to save cost. I also set permissions, user and group in IAM. 
 <img src="images/S3-lifecycle.png"/>
  2. Setup AWS Lambda to send delete image notifications using AWS Simple Notification Service Topic. 
@@ -142,7 +145,7 @@ var params = {
   Message: 'CloudJibe portal iniciated filedeletion for file - ' + srcBucket + '/' + srcKey, /* required */
   MessageStructure: 'STRING_VALUE',
   Subject: 'File ('+srcKey+') deleted in S3 from CloudJibe portal',
-  TopicArn: 'arn:aws:sns:us-west-1:476342674:manojalb_health'
+  TopicArn: 'arn:aws:sns:us-west-1:476374:manojalb_health'
 };
 sns.publish(params, function(error, data) {
   if (error) console.log(error, err.stack); // an error occurred
@@ -152,6 +155,19 @@ sns.publish(params, function(error, data) {
     //console.log('From SNS:', message);
     callback(null, 'Successfully resized ' + srcBucket + '/' + srcKey);
 };
+```
+ 3. Create RSD MySQL database. Run following script to create table.
+```
+CREATE TABLE FileUpdate (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+upload_date datetime,
+updated_date datetime,
+file_name VARCHAR(50),
+file_desc VARCHAR(100) 
+)
 ```
 
 
