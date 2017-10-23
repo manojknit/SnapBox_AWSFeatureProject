@@ -8,9 +8,9 @@ A personal picture repository in cloud. This application provides secure, highly
 * Agenda
 * Features
 * Technologies Used
+* Architecture diagrams
 * Application Screenshots
 * How to Run
-* Architecture diagrams
 * AWS Infrastructure Detail
 * Licence
 * Refrence
@@ -68,6 +68,13 @@ Basically this application demonstrates Azure Active Directory Single Sign-On Au
 26.	SNS -- Notification
 27.	IAM – Permissions/role/group
 
+## Architecture diagrams
+<img src="images/CloudArchitectureS3RDSetc.PNG">
+<img src="images/BackendObjectStorageDiagram.PNG">
+<img src="images/ASPNETCoreApplicationArchitecture.PNG">
+<img src="images/SequenceDiagram-MVCASPNetCore.PNG">
+<img src="images/AWS_ASPNetCoreebHostingArchitecture.PNG">
+
 
 ## Application Screenshots
 #### Main List Page: In this page user can see list of images. which are stores in AWS S3 and metadata in AWSS RDS MySQL DB.
@@ -112,13 +119,6 @@ region=us-west-1
 
 * Now run your application
 * This project is deployed on AWS Elastic Beanstalk on Multi AZ servers with load balancer and autoscaling.
-
-## Architecture diagrams
-<img src="images/CloudArchitectureS3RDSetc.PNG">
-<img src="images/BackendObjectStorageDiagram.PNG">
-<img src="images/ASPNETCoreApplicationArchitecture.PNG">
-<img src="images/SequenceDiagram-MVCASPNetCore.PNG">
-<img src="images/AWS_ASPNetCoreebHostingArchitecture.PNG">
 
 ## AWS infrastructure 
 In AWS following 3 are the main technologies which are required to run App. However I used more to make secure, highly available, reliable and scalable application.
