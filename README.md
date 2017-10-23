@@ -2,21 +2,23 @@
 # SnapBox - AWSFeatureProject
 ####                                                                                                     By CloudJibe
 ## Introduction 
-Personal picture repository in cloud. This application provides secure, highly available and scalable storage for you snaps.   
+A personal picture repository in cloud. This application provides secure, highly available, reliable and scalable storage for your snaps. This is enterprise level application to support HTTPS and single sign-on.   
 
 ## Table of content
 * Agenda
-* Screenshots
+* Features
+* Technologies Used
+* Application Screenshots
 * Installation
-* AWS Infrastructure 
 * Architecture diagrams
+* AWS Infrastructure Detail
 * Licence
 * Refrence
 
 ## Agenda
 Basically this application demonstrates Azure Active Directory Single Sign-On Authentication, CRUD operations with AWS RDS MySQL, File storage with AWS S3, File download from AWS CloudFront with AWS SDK for .NET with .NET Core, ASP.NET Core MVC, JQuery, Bootstrap, Pomelo.EntityFrameworkCore.MySql.
 
-### Features
+## Features
 1.	Name: CloudJibe – SnapBox: Personal picture repository
 2.	Provides Enterprise Level Azure Active Directory Single Sign On Authentication
 3.	Secure highly available and scalable personal picture storage solution for employees
@@ -37,8 +39,37 @@ Basically this application demonstrates Azure Active Directory Single Sign-On Au
 18.	CloudWatch Alarm is set with SNS topic email notification on Elastic Beanstalk network traffic crosses threshold traffic.
 19.	Site is also configured for HTTPs. Secure login using HTTPs
 
+## Technologies Used
+1.	Using Azure and AWS cloud platforms.
+2.	ASP.NET MVC Core (latest open-source and cross-platform framework)
+3.	JQuery, JSON, Javascript – Client side scripting
+4.	HTML5
+5.	CSS3 - Styling
+6.	Bootstrap – to make responsive UI
+7.	Bower js web package manager
+8.	NuGet - Package manager
+9.	Bundling and minification – To boost performance doing js file bundeling and minification
+10.	GitHub – For configuration management
+11.	Pomelo.EntityFrameworkCore.MySql - ORM
+12.	AWS SDK for .NET Core – To communicate to AWS services. 
+13.	Azure AD – Enterprise user data for authentication
+14.	Azure AD Federation Authentication – For Single Sign on.
+15.	Elastic Beanstalk – Used for multi-AZ and auto scale deployment.
+16.	EC2 – Auto scale “64bit Windows Server 2016 v1.2.0 running IIS 10.0” EC2 instances are used.
+17.	ELB – used for load balancing
+18.	Lambda – used to send mail on image deletion.
+19.	AutoScaling Group – Multi AZ deployment is set for auto scalling
+20.	Single AZ RDS Db converted to Multi AZ Select InstanceInstance ActionModifyMulti AZ deployment to Yes.
+21.	CloudFront – caching for faster file download.
+22.	S3 for object storage
+23.	S3 Transfer Acceleration
+24.	R53 – domain registration, URL configuration
+25.	CloudWatch – log and notification
+26.	SNS -- Notification
+27.	IAM – Permissions/role/group
 
-## Screenshots
+
+## Application Screenshots
 #### Main List Page: In this page user can see list of images. which are stores in AWS S3 and metadata in AWSS RDS MySQL DB.
 <img src="images/image_list.PNG">
 
@@ -80,6 +111,13 @@ region=us-west-1
 * Now run your application
 * This project is deployed on AWS Elastic Beanstalk on Multi AZ servers with load balancer and autoscaling.
 
+## Architecture diagrams
+<img src="images/CloudArchitectureS3RDSetc.PNG">
+<img src="images/BackendObjectStorageDiagram.PNG">
+<img src="images/ASPNETCoreApplicationArchitecture.PNG">
+<img src="images/SequenceDiagram-MVCASPNetCore.PNG">
+<img src="images/AWS_ASPNetCoreebHostingArchitecture.PNG">
+
 ## AWS infrastructure 
  1. Create S3 bucket with name as “homework2-manoj”. Enable versioning and transfer acceleration. Lifecycle can be set as architecture diagram to save cost. I also set permissions, user and group in IAM. 
 <img src="images/S3-lifecycle.png"/>
@@ -117,13 +155,14 @@ sns.publish(params, function(error, data) {
 ```
 
 
-
-##Architecture diagrams
-
-
 ## License
 The SnapBox – By CloudJibe is licensed under the terms of the GPL Open Source license and is available for free.
 ## Refrence
-Manoj Kumar
+* University Name: http://www.sjsu.edu/ 
+* Course: Cloud Technologies
+* Professor Sanjay Garje 
+* ISA: Divyankitha Urs
+* Student: Manoj Kumar (https://www.linkedin.com/in/manojkumar19/)
+
 
 
