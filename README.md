@@ -175,8 +175,7 @@ The SnapBox – By CloudJibe is licensed under the terms of the GPL Open Source 
 * University Name: http://www.sjsu.edu/ 
 * Course: Cloud Technologies
 * Professor Sanjay Garje 
-* ISA: Divyankitha Urs
-* Student: Manoj Kumar (https://www.linkedin.com/in/manojkumar19/)
+* Manoj Kumar (https://www.linkedin.com/in/manojkumar19/)
 
 
 
